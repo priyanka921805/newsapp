@@ -14,3 +14,11 @@ export default class App extends Component {
     )
   }
 }
+
+            // Wrong
+            // this.state.comment = 'Hello';
+
+            // Instead, use setState():
+
+            // Correct
+            // this.setState({comment: 'Hello'});
