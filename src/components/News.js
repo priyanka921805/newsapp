@@ -14,19 +14,40 @@ export class News extends Component {
 
   async componentDidMount(){
     console.log("cdn");
-    let url ="https://newsapi.org/v2/everything?domains=wsj.com&apiKey=580f047e7ec44e39bfee24ff1a006b2a&page=1";
+    let url ="https://newsapi.org/v2/everything?domains=wsj.com&apiKey=580f047e7ec44e39bfee24ff1a006b2a&page=1&pageSize=20";
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
     this.setState({articles: parsedData.articles})
   }
-    handlePrevClick = ()=>{
+    handlePrevClick = async ()=>{
       console.log("Previous");
+      let url =`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=580f047e7ec44e39bfee24ff1a006b2a&page=${this.state.page - 1}&pageSize=20`;
+        let data = await fetch(url);
+        let parsedData = await data.json();
+        console.log(parsedData);
+        this.setState({
+        page: this.state.page - 1,
+        articles: parsedData.articles
+      })
     }
 
-    handleNextClick = ()=>{
-      console.log("Next");
+    handleNextClick = async ()=>{
+        console.log("Next");
+        if (this.state.page + 1 > Math.ceil(this.state.totalResults/20)){
+
+        }
+        else{
+        let url =`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=580f047e7ec44e39bfee24ff1a006b2a&page=${this.state.page + 1}&pageSize=20`;
+        let data = await fetch(url);
+        let parsedData = await data.json();
+        console.log(parsedData);
+        this.setState({
+        page: this.state.page + 1,
+        articles: parsedData.articles
+      })
     }
+  }
 
 
 
@@ -45,8 +66,6 @@ export class News extends Component {
         <div className='container d-flex justify-content-between'>
         <button disabled={this.state.page<=1}  type="button" className="btn btn-primary" onClick={this.handlePrevClick}> &larr; Previous</button>
         <button type="button" className="btn btn-primary" onClick={this.handleNextClick}>Next &rarr; </button>
-
-
         </div>
       </div>
     )
