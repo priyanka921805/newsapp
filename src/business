@@ -1,0 +1,21 @@
+<Route exact path="/business" /><News pageSize={6} country="in" category=""/>
+<Route exact path="/entertainment" /><News pageSize={6} country="in" category=""/>
+<Route exact path="/general"/><News pageSize={6} country="in" category=""/>
+<Route exact path="/health" /><News pageSize={6} country="in" category=""/>
+<Route exact path="/science" /><News pageSize={6} country="in" category=""/>
+<Route exact path="/sports" /><News pageSize={6} country="in" category=""/>
+<Route exact path="/technology" /><News pageSize={6} country="in" category=""/>
+
+
+
+
+
+
+
+
+
+<Route exact path="/business" /><News pageSize={6} country="in" category=""/>
+
+
+<!-- alt + shift + click   ----   {for multiple cursor}     ------------- ctrl + v-->
+<!-- alt + shift + end    ----- {for modify the end of the line} --------  ctrl + v -->
